@@ -1,0 +1,42 @@
+# Entorno local. Todos los objetos Docker llevan el prefijo biblioteca_
+# Las variables DB_* se leen del archivo .env de Laravel (no versionado).
+name: biblioteca
+
+services:
+  biblioteca_app:
+    build:
+      context: ./docker/app
+    image: biblioteca_app:php7.2
+    container_name: biblioteca_app
+    depends_on:
+      - biblioteca_db
+    ports:
+      - "127.0.0.1:8090:80"
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - biblioteca_red
+
+  biblioteca_db:
+    image: mysql:5.7
+    container_name: biblioteca_db
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "127.0.0.1:3317:3306"
+    volumes:
+      - biblioteca_db_datos:/var/lib/mysql
+    networks:
+      - biblioteca_red
+
+volumes:
+  biblioteca_db_datos:
+    name: biblioteca_db_datos
+
+networks:
+  biblioteca_red:
+    name: biblioteca_red
