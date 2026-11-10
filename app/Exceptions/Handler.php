@@ -50,4 +50,15 @@ class Handler extends ExceptionHandler
     {
         return parent::render($request, $exception);
     }
+
+    /**
+     * Sesión expirada o usuario no autenticado: el formulario de login está en "/"
+     * (la ruta "login" solo acepta POST, por lo que redirigir a ella causaba un 405).
+     */
+    protected function unauthenticated($request, \Illuminate\Auth\AuthenticationException $exception)
+    {
+        return $request->expectsJson()
+            ? response()->json(['message' => $exception->getMessage()], 401)
+            : redirect()->guest('/');
+    }
 }

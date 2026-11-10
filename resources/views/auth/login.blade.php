@@ -28,11 +28,11 @@
             </div>
           </form>
           </div>
-          <div class="card text-white bg-primary py-5 d-md-down-none" style="background-image: url('img/IMG_4477.jpg');background-size: auto 100%;">
+          <div class="card text-white bg-primary py-5 d-md-down-none" style="background-image: url('img/IMG_4477.JPG');background-size: auto 100%;">
             <div class="card-body text-center">
               <div>
                 
-                <!--<img src="img/IMG_4477.jpg"  width="300px" height="300px">-->
+                <!--<img src="img/IMG_4477.JPG"  width="300px" height="300px">-->
                 
                 
                 

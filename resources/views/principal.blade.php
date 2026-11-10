@@ -57,7 +57,7 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img src="img/avatars/9.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                    <img src="img/avatars/9.JPG" class="img-avatar" alt="Usuario">
                     <span class="d-md-down-none">{{Auth::user()->usuario}} </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
